@@ -1,0 +1,120 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import javax.swing.JTextField;
+import javax.swing.JPasswordField;
+import javax.swing.JButton;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+
+public class Parking {
+
+	private JFrame frmParkingSystem;
+	private JTextField txtuser;
+	private JPasswordField txtpass;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Parking window = new Parking();
+					window.frmParkingSystem.setVisible(true);
+					window.frmParkingSystem.setLocationRelativeTo(null);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Parking() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmParkingSystem = new JFrame();
+		frmParkingSystem.getContentPane().setBackground(new Color(46, 139, 87));
+		frmParkingSystem.setFont(new Font("Arial", Font.BOLD, 12));
+		frmParkingSystem.setTitle("Parking System");
+		frmParkingSystem.setBounds(100, 100, 826, 511);
+		frmParkingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmParkingSystem.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBorder(null);
+		panel.setBounds(257, 0, 555, 474);
+		frmParkingSystem.getContentPane().add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_2 = new JLabel("New label");
+		lblNewLabel_2.setIcon(new ImageIcon("D:\\eclipse works\\Parking_System\\src\\images\\parkimg.png"));
+		lblNewLabel_2.setBounds(10, 11, 525, 458);
+		panel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setForeground(new Color(0, 0, 0));
+		lblNewLabel.setFont(new Font("Georgia", Font.PLAIN, 20));
+		lblNewLabel.setBounds(10, 34, 119, 31);
+		frmParkingSystem.getContentPane().add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Password");
+		lblNewLabel_1.setForeground(new Color(0, 0, 0));
+		lblNewLabel_1.setFont(new Font("Georgia", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(10, 187, 146, 31);
+		frmParkingSystem.getContentPane().add(lblNewLabel_1);
+		
+		txtuser = new JTextField();
+		txtuser.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtuser.setBounds(10, 76, 206, 31);
+		frmParkingSystem.getContentPane().add(txtuser);
+		txtuser.setColumns(9);
+		
+		txtpass = new JPasswordField();
+		txtpass.setToolTipText("*");
+		txtpass.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtpass.setColumns(9);
+		txtpass.setBounds(10, 231, 206, 31);
+		frmParkingSystem.getContentPane().add(txtpass);
+		
+		JButton btnlogin = new JButton("Login");
+		btnlogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String str=btnlogin.getText();
+				if(str.isBlank())
+				{
+					JOptionPane.showMessageDialog(this, "Plain Message", "U have not entered username", JOptionPane.PLAIN_MESSAGE);
+				}
+				
+			}
+		});
+		btnlogin.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnlogin.setForeground(new Color(0, 0, 0));
+		btnlogin.setBackground(new Color(255, 255, 255));
+		btnlogin.setBounds(47, 286, 128, 31);
+		frmParkingSystem.getContentPane().add(btnlogin);
+		
+		JButton btnfp = new JButton("Forgot Password");
+		btnfp.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		btnfp.setForeground(new Color(0, 0, 0));
+		btnfp.setBackground(new Color(255, 255, 255));
+		btnfp.setBounds(10, 345, 206, 31);
+		frmParkingSystem.getContentPane().add(btnfp);
+	}
+}

@@ -1,0 +1,56 @@
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Font;
+
+public class Parking {
+
+	private JFrame frmParkingSystem;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Parking window = new Parking();
+					window.frmParkingSystem.setVisible(true);
+					window.frmParkingSystem.setLocationRelativeTo(null);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public Parking() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmParkingSystem = new JFrame();
+		frmParkingSystem.setFont(new Font("Arial", Font.BOLD, 12));
+		frmParkingSystem.setTitle("Parking System");
+		frmParkingSystem.setBounds(100, 100, 713, 472);
+		frmParkingSystem.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmParkingSystem.getContentPane().setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(329, 0, 360, 424);
+		frmParkingSystem.getContentPane().add(panel);
+		
+		JLabel lblNewLabel = new JLabel("Username");
+		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblNewLabel.setBounds(10, 29, 119, 31);
+		frmParkingSystem.getContentPane().add(lblNewLabel);
+	}
+}
